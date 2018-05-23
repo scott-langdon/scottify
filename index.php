@@ -4,6 +4,6 @@
 	<title>Slotify</title>
 </head>
 <body>
-	<h1>hello</h1>
+	<h1>INDEX PAGE</h1>
 </body>
 </html>
