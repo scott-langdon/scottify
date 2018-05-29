@@ -1,7 +1,13 @@
-<?php  
+<?php 
 
 function sanitizeFormPassword($inputText) {
 	$inputText = strip_tags($inputText);
+	return $inputText;
+}
+
+function sanitizeFormUsername($inputText) {
+	$inputText = strip_tags($inputText);
+	$inputText = str_replace(" ", "", $inputText);
 	return $inputText;
 }
 
@@ -12,11 +18,6 @@ function sanitizeFormString($inputText) {
 	return $inputText;
 }
 
-function sanitizeFormUsername($inputText) {
-	$inputText = strip_tags($inputText); // removes any html elements so no one can manipulate site
-	$inputText = str_replace(" ", "", $inputText); // this will replace all the spaces to clean it up
-	return $inputText; 
-}
 
 if(isset($_POST['registerButton'])) {
 	//Register button was pressed
@@ -30,10 +31,11 @@ if(isset($_POST['registerButton'])) {
 
 	$wasSuccessful = $account->register($username, $firstName, $lastName, $email, $email2, $password, $password2);
 
-	if($wasSuccessful) {
+	if($wasSuccessful == true) {
 		header("Location: index.php");
 	}
 
 }
+
 
 ?>
